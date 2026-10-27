@@ -1,0 +1,9 @@
+{
+  "empresa": "Ventas S.L.",
+  "fecha": "2026-10-27",
+  "ventas": [
+    {"id": 1, "producto": "Portátil", "cantidad": 2, "precio_unitario": 899.99},
+    {"id": 2, "producto": "Monitor", "cantidad": 5, "precio_unitario": 189.50},
+    {"id": 3, "producto": "Teclado", "cantidad": 10, "precio_unitario": 45.00}
+  ]
+}

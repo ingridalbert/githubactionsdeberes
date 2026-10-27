@@ -1,0 +1,20 @@
+name: Pipeline de Datos Seguro
+
+on:
+  workflow_dispatch:
+    inputs:
+      tests_seguridad:
+        description: "¿Ejecutar los Tests de Seguridad?"
+        required: true
+        type: choice
+        options:
+          - "si"
+          - "no"
+        default: "si"
+
+jobs:
+  prueba:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Mostrar la opción elegida
+        run: echo "Has elegido tests de seguridad = ${{ inputs.tests_seguridad }}"
