@@ -13,8 +13,19 @@ on:
         default: "si"
 
 jobs:
-  prueba:
+  ci-seguridad:
+    name: CI & Seguridad
     runs-on: ubuntu-latest
     steps:
-      - name: Mostrar la opción elegida
-        run: echo "Has elegido tests de seguridad = ${{ inputs.tests_seguridad }}"
+      - name: Descargar el código
+        uses: actions/checkout@v4
+
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Validar que ventas.json es un JSON válido
+        run: |
+          python -m json.tool ventas.json > /dev/null
+          echo "✅ ventas.json es un JSON válido"
