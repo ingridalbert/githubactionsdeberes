@@ -29,3 +29,7 @@ jobs:
         run: |
           python -m json.tool ventas.json > /dev/null
           echo "✅ ventas.json es un JSON válido"
+      
+      - name: Escaneo de seguridad (claves API expuestas)
+        if: ${{ inputs.tests_seguridad == 'si' }}
+        run: python scripts/security_scan.py
