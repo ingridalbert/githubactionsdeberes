@@ -58,3 +58,16 @@ jobs:
         with:
           name: reporte-${{ matrix.entorno }}
           path: reporte_${{ matrix.entorno }}.txt
+
+  notificacion:
+    name: Notificación de Éxito
+    needs: [ci-seguridad, procesamiento]
+    if: ${{ success() }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Notificar a Discord (simulado)
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+        run: |
+          echo "Pipeline completado con éxito"
+          echo "Enviando notificación al webhook: $DISCORD_WEBHOOK"
